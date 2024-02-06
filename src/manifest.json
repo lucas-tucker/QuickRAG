@@ -5,12 +5,12 @@
     "description": "We need to talk about your crazy long PDFs.",
     "action": {
       "default_logo": {
-        "19": "img/lenalogo.png"
+        "19": "img/alt_logo.png"
       },
       "default_popup": "popup.html"
     },
     "icons": { 
-      "350": "img/lenalogo.png"
+      "350": "img/alt_logo.png"
     },
     "background":{
       "service_worker": "background.js",
@@ -27,7 +27,6 @@
         "description": "Activate the extension"
       }
     },
-    "options_page": "options/options.html",
     "permissions": [
     "activeTab", 
     "storage", 

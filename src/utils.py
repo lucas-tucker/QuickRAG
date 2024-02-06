@@ -2,9 +2,9 @@
 import os
 from dotenv import load_dotenv, find_dotenv
 
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["HUGGINGFACE_API_KEY"] = "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"
-
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
+huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
 
 import numpy as np
 from trulens_eval import (

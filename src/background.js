@@ -1,4 +1,4 @@
-function handle_addKw_change(enableIt) { // option page
+function enable_app(enableIt) { // option page
     chrome.storage.local.get(['settings'], function (result) {
         if (enableIt) {
             chrome.contextMenus.create({
@@ -8,7 +8,6 @@ function handle_addKw_change(enableIt) { // option page
             });
             result.settings.enableAddKw = true;
         } else {
-            chrome.contextMenus.remove("addKw");
             result.settings.enableAddKw = false;
         }
 
@@ -17,32 +16,21 @@ function handle_addKw_change(enableIt) { // option page
 }
   
 // handle extension installation event
-chrome.runtime.onInstalled.addListener(function (details) { // when first installed, extension updated, browser updated
+chrome.runtime.onInstalled.addListener(function (details) { 
 
     if (details.reason === chrome.runtime.OnInstalledReason.INSTALL){
-
-        var popupConfig = {
-            // Pop-up window settings
-            popup_width: 400,
-            popup_height: 100,
-        }
-    
-        // add context menu item
         chrome.contextMenus.create({
             title: 'Candice',
-            id: 'Cand', // you'll use this in the handler function to identify this context menu item
+            id: 'Cand', 
             contexts: ['selection'],
         });
-        chrome.storage.local.set({'settings': settings, 'popupConfig': popupConfig});
+        chrome.storage.local.set({'settings': settings});
 
     }else{
 
-        chrome.storage.local.get(['settings', 'popupConfig'], function(result){
+        chrome.storage.local.get(['settings'], function(result){
             var settings = result.settings;
-            var popupConfig = result.popupConfig;
-
-            handle_addKw_change(settings.enableAddKw);
-            handle_popupSize_change(popupConfig.popup_height, popupConfig.popup_width);
+            enable_app(settings.enableAddKw);
         });
     }
 
@@ -55,10 +43,10 @@ chrome.contextMenus.onClicked.addListener(function getword(info, tab) {
         var linkUrl = info.linkUrl; // this is the highlighted text
         chrome.storage.local.set({linkUrl: linkUrl}, function() {
             chrome.windows.create({
-                url: chrome.runtime.getURL("popup.html"), // replace "popup.html" with the path to your popup HTML file
+                url: chrome.runtime.getURL("popup.html"), 
                 type: "popup",
-                width: 400, // replace with your desired width
-                height: 600 // replace with your desired height
+                width: 400, 
+                height: 600 
             });
         });
         fetch('http://localhost:8000', {
