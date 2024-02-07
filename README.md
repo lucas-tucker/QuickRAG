@@ -1,4 +1,4 @@
-QuickRAG is a simple extension for Google Chrome that enables you to ask questions to contents of highlighted links, whether the links are links to pdfs or other documents. 
+QuickRAG is a simple extension for Google Chrome that enables you to ask questions to contents of highlighted PDF links.
 
 ![alt text](src/img/QRPage.png)
 
@@ -17,5 +17,5 @@ Then, from directory QuickRAG/src in terminal, enter:
 $ python3 server.py
 ```
 
-Now, when highlighting links with QuickRAG enabled in your Google Chrome browser, you should get a QuickRAG menu option, which when clicked will bring you to the query engine page. 
+Now, when highlighting PDF links with QuickRAG enabled in your Google Chrome browser, you should get a QuickRAG menu option, which when clicked will bring you to the query engine page. 
 

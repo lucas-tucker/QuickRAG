@@ -19,6 +19,7 @@ from llama_index.llms import OpenAI
 
 from urllib.parse import urlparse, parse_qs
 import requests
+import pdfkit
 
 from flask import Flask, request, jsonify, render_template
 app = Flask(__name__)
@@ -41,7 +42,7 @@ class QueryEngine:
             if response.status_code == 200:
                 with open(save_path, 'wb') as f:
                     f.write(response.content)
-                print(f"PDF downloaded successfully to: {save_path}")
+                    print(f"PDF downloaded successfully to: {save_path}")
             else:
                 print(f"Failed to download PDF from: {pdf_url}")
         documents = SimpleDirectoryReader(input_files=["./data.pdf"]).load_data()
