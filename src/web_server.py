@@ -22,13 +22,7 @@ import cgi
 from urllib.parse import urlparse, parse_qs
 from flask import Flask, request, jsonify
 import sqlite3
-
 import requests
-
-query_engine = [None]
-document = [None]
-documents = [None]
-llm = OpenAI(model="gpt-3.5-turbo", temperature=0.1)
 
 class QueryEngine:
     def __init__(self, model="gpt-3.5-turbo", temperature=0.1):

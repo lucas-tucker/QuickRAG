@@ -2,8 +2,8 @@ function enable_app(enableIt) { // option page
     chrome.storage.local.get(['settings'], function (result) {
         if (enableIt) {
             chrome.contextMenus.create({
-                title: 'Candice',
-                id: 'Cand', // you'll use this in the handler function to identify this context menu item
+                title: 'QuickRAG',
+                id: 'QuickRAG', // you'll use this in the handler function to identify this context menu item
                 contexts: ['selection'],
             });
             result.settings.enableAddKw = true;
@@ -20,8 +20,8 @@ chrome.runtime.onInstalled.addListener(function (details) {
 
     if (details.reason === chrome.runtime.OnInstalledReason.INSTALL){
         chrome.contextMenus.create({
-            title: 'Candice',
-            id: 'Cand', 
+            title: 'QuickRAG',
+            id: 'QuickRAG', 
             contexts: ['selection'],
         });
         chrome.storage.local.set({'settings': settings});
@@ -38,7 +38,7 @@ chrome.runtime.onInstalled.addListener(function (details) {
 
 
 chrome.contextMenus.onClicked.addListener(function getword(info, tab) {
-    if (info.menuItemId === "Cand") {
+    if (info.menuItemId === "QuickRAG") {
         // Open the extension popup window
         var linkUrl = info.linkUrl; // this is the highlighted text
         chrome.storage.local.set({linkUrl: linkUrl}, function() {
@@ -67,12 +67,6 @@ chrome.contextMenus.onClicked.addListener(function getword(info, tab) {
         });
     }
 });
-
-
-
-
-
-
 
 
 
