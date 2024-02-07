@@ -7,7 +7,7 @@
       "default_logo": {
         "19": "img/alt19.png"
       },
-      "default_popup": "popup.html"
+      "default_popup": "templates/popup.html"
     },
     "icons": { 
         "48": "img/alt48.png"
