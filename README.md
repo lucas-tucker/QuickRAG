@@ -2,7 +2,9 @@ QuickRAG is a simple extension for Google Chrome that enables you to ask questio
 
 To get set up, git clone this repository and in your Chrome extension menu, select "load unpacked", and load in QuickRAG/src.
 
-Since the RAG modeel uses OpenAI's GPT 3.5-turbo (specifically from utils.py), please add a .env file to QuickRAG/src and write in your OpenAI API and Huggingface API keys as:
+![alt text](src/img/LoadExt.png)
+
+Since the RAG model uses OpenAI's GPT 3.5-turbo (specifically from utils.py), please add a .env file to QuickRAG/src and write in your OpenAI API and Huggingface API keys as:
 OPENAI_API_KEY = "..."
 HUGGINGFACE_API_KEY = "..."
 
@@ -13,5 +15,5 @@ $ python3 server.py
 
 Now, when highlighting links with QuickRAG enabled in your Google Chrome browser, you should get a QuickRAG menu option, which when clicked will bring you to the query engine page. 
 
-![alt text](src/img/alt19.png)
+![alt text](src/img/QRPage.png)
 
